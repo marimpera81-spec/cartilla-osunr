@@ -3,81 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cartilla OSUNR 🌿</title>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <title>Cartilla Médica - OSUNR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --ghibli-green: #9dbb9b;
-            --ghibli-blue: #a7c7e7;
-            --ghibli-cream: #fdfaf5;
-            --ghibli-accent: #e6a8d7;
-            --text: #4a5568;
+            --primary: #5d7a5c; /* Verde Ghibli apagado, más formal */
+            --secondary: #7ba2c7; /* Azul suave */
+            --bg: #fdfaf5; /* Crema */
+            --text: #2d3748;
         }
         body {
-            font-family: 'Quicksand', sans-serif;
-            background-color: var(--ghibli-cream);
-            background-image: linear-gradient(180deg, var(--ghibli-blue) 0%, var(--ghibli-cream) 40%);
-            background-attachment: fixed;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
             color: var(--text);
-            margin: 0; padding: 20px;
+            margin: 0; padding: 20px; line-height: 1.6;
         }
-        .container { max-width: 600px; margin: 0 auto; }
-        header { text-align: center; margin-bottom: 30px; }
-        h1 { font-weight: 600; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
+        .container { max-width: 700px; margin: 0 auto; }
+        header { border-bottom: 2px solid var(--primary); margin-bottom: 30px; padding-bottom: 10px; }
+        h1 { color: var(--primary); font-size: 1.8rem; margin: 0; }
+        p { color: #718096; margin: 5px 0; }
         
         .search-box {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 25px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            display: flex; flex-direction: column; gap: 15px;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            display: flex; flex-direction: column; gap: 12px;
         }
         input {
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
             padding: 12px;
-            font-family: inherit;
-            outline: none; transition: 0.3s;
+            font-size: 16px;
+            outline: none;
         }
-        input:focus { border-color: var(--ghibli-green); }
+        input:focus { border-color: var(--secondary); box-shadow: 0 0 0 3px rgba(123, 162, 199, 0.2); }
         
         button {
-            background-color: var(--ghibli-green);
+            background-color: var(--primary);
             color: white; border: none;
-            padding: 15px; border-radius: 12px;
-            font-weight: 600; cursor: pointer;
-            transition: transform 0.2s;
+            padding: 14px; border-radius: 8px;
+            font-size: 16px; font-weight: 600; cursor: pointer;
+            transition: background 0.3s;
         }
-        button:hover { transform: scale(1.02); }
+        button:hover { background-color: #4a6149; }
 
         .tarjeta {
-            background: white; margin-top: 20px;
-            padding: 20px; border-radius: 20px;
-            border-bottom: 4px solid var(--ghibli-blue);
-            animation: fadeIn 0.5s ease;
+            background: white; margin-top: 15px;
+            padding: 20px; border-radius: 12px;
+            border-left: 5px solid var(--secondary);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
-        .nombre { color: var(--ghibli-green); font-size: 1.2em; font-weight: 600; }
-        .info { font-size: 0.9em; margin: 8px 0; }
-        .info a { color: var(--ghibli-blue); text-decoration: none; font-weight: 600; }
-        
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .nombre { color: var(--primary); font-size: 1.1em; font-weight: 600; margin-bottom: 5px; }
+        .especialidad { font-weight: 600; color: #4a5568; text-transform: uppercase; font-size: 0.85em; }
+        .info { font-size: 0.95em; margin: 5px 0; display: flex; align-items: center; gap: 8px; }
+        .info a { color: var(--secondary); text-decoration: none; font-weight: 600; }
+        .info a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Cartilla OSUNR 🌿</h1>
-            <p>Encuentra tu médico o farmacia</p>
+            <h1>Cartilla Médica OSUNR</h1>
+            <p>Buscador oficial de prestadores y farmacias</p>
         </header>
         <div class="search-box">
-            <input type="text" id="busqEspecialidad" placeholder="🌿 Especialidad">
-            <input type="text" id="busqLocalidad" placeholder="📍 Localidad">
-            <input type="text" id="busqMedico" placeholder="👤 Nombre">
-            <button id="btnBuscar">BUSCAR EN LA PRADERA</button>
+            <input type="text" id="busqEspecialidad" placeholder="Especialidad (ej: Clínica)">
+            <input type="text" id="busqLocalidad" placeholder="Localidad (ej: Rosario)">
+            <input type="text" id="busqMedico" placeholder="Nombre del profesional">
+            <button id="btnBuscar">BUSCAR PRESTADOR</button>
         </div>
         <div id="contenedor-resultados"></div>
     </div>
     <script type="module" src="script.js"></script>
 </body>
 </html>
+
