@@ -3,79 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cartilla Médica - OSUNR</title>
+    <title>Cartilla Médica OSUNR</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #5d7a5c; /* Verde Ghibli apagado, más formal */
-            --secondary: #7ba2c7; /* Azul suave */
-            --bg: #fdfaf5; /* Crema */
-            --text: #2d3748;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            margin: 0; padding: 20px; line-height: 1.6;
-        }
-        .container { max-width: 700px; margin: 0 auto; }
-        header { border-bottom: 2px solid var(--primary); margin-bottom: 30px; padding-bottom: 10px; }
-        h1 { color: var(--primary); font-size: 1.8rem; margin: 0; }
-        p { color: #718096; margin: 5px 0; }
-        
-        .search-box {
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            display: flex; flex-direction: column; gap: 12px;
-        }
-        input {
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 12px;
-            font-size: 16px;
-            outline: none;
-        }
-        input:focus { border-color: var(--secondary); box-shadow: 0 0 0 3px rgba(123, 162, 199, 0.2); }
-        
-        button {
-            background-color: var(--primary);
-            color: white; border: none;
-            padding: 14px; border-radius: 8px;
-            font-size: 16px; font-weight: 600; cursor: pointer;
-            transition: background 0.3s;
-        }
-        button:hover { background-color: #4a6149; }
-
-        .tarjeta {
-            background: white; margin-top: 15px;
-            padding: 20px; border-radius: 12px;
-            border-left: 5px solid var(--secondary);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-        .nombre { color: var(--primary); font-size: 1.1em; font-weight: 600; margin-bottom: 5px; }
-        .especialidad { font-weight: 600; color: #4a5568; text-transform: uppercase; font-size: 0.85em; }
-        .info { font-size: 0.95em; margin: 5px 0; display: flex; align-items: center; gap: 8px; }
+        :root { --primary: #5d7a5c; --secondary: #7ba2c7; --bg: #fdfaf5; --text: #2d3748; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); margin: 0; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; }
+        header { border-bottom: 2px solid var(--primary); margin-bottom: 30px; padding-bottom: 10px; text-align: center; }
+        h1 { color: var(--primary); margin: 0; }
+        .search-box { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); display: flex; flex-direction: column; gap: 12px; }
+        input { border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; font-size: 16px; outline: none; }
+        button { background-color: var(--primary); color: white; border: none; padding: 14px; border-radius: 8px; font-weight: 600; cursor: pointer; }
+        .tarjeta { background: white; margin-top: 15px; padding: 20px; border-radius: 12px; border-left: 5px solid var(--secondary); box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .nombre { color: var(--primary); font-weight: 600; text-transform: uppercase; }
         .info a { color: var(--secondary); text-decoration: none; font-weight: 600; }
-        .info a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
             <h1>Cartilla Médica OSUNR</h1>
-            <p>Buscador oficial de prestadores y farmacias</p>
+            <p>Buscador de Profesionales y Farmacias</p>
         </header>
         <div class="search-box">
-            <input type="text" id="busqEspecialidad" placeholder="Especialidad (ej: Clínica)">
-            <input type="text" id="busqLocalidad" placeholder="Localidad (ej: Rosario)">
-            <input type="text" id="busqMedico" placeholder="Nombre del profesional">
-            <button id="btnBuscar">BUSCAR PRESTADOR</button>
+            <input type="text" id="busqEspecialidad" placeholder="Especialidad">
+            <input type="text" id="busqLocalidad" placeholder="Localidad">
+            <input type="text" id="busqMedico" placeholder="Nombre">
+            <button id="btnBuscar">BUSCAR</button>
         </div>
         <div id="contenedor-resultados"></div>
     </div>
-    <script type="module" src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
+
 
