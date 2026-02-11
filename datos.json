@@ -1,0 +1,18 @@
+[
+  {
+    "tipo": "medico",
+    "nombre": "GOMEZ, JUAN",
+    "especialidad": "Pediatría",
+    "direccion": "Santa Fe 1234",
+    "localidad": "Rosario",
+    "telefono": "3414444444"
+  },
+  {
+    "tipo": "farmacia",
+    "nombre": "FARMACIA ROSARIO",
+    "especialidad": "Farmacia",
+    "direccion": "Cordoba 2000",
+    "localidad": "Rosario",
+    "telefono": "3414555555"
+  }
+]
