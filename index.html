@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartilla Médica OSUNR</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Cartilla Médica OSUNR</h1>
+            <p>Buscador de Profesionales y Farmacias</p>
+        </header>
+
+        <div class="search-grid">
+            <input type="text" id="busqEspecialidad" placeholder="Especialidad (ej: Pediatría)">
+            <input type="text" id="busqLocalidad" placeholder="Localidad (ej: Rosario)">
+            <input type="text" id="busqMedico" placeholder="Nombre del Médico">
+            <button class="btn-search" id="btnBuscar">BUSCAR</button>
+        </div>
+
+        <div id="contenedor-resultados"></div>
+    </div>
+    <script type="module" src="script.js"></script>
+</body>
+</html>

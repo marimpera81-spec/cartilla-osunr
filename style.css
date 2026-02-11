@@ -1,0 +1,10 @@
+:root { --primary: #0056b3; --bg: #f4f7f6; --text: #333; }
+body { font-family: 'Segoe UI', sans-serif; background: var(--bg); margin: 0; padding: 20px; }
+.container { max-width: 800px; margin: 0 auto; }
+header { text-align: center; padding: 20px 0; }
+.search-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+input { padding: 12px; border: 1px solid #ddd; border-radius: 8px; outline: none; }
+.btn-search { grid-column: 1 / -1; background: var(--primary); color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-weight: bold; }
+.tarjeta { background: white; padding: 20px; margin-top: 15px; border-radius: 12px; border-left: 6px solid var(--primary); }
+.nombre { font-weight: bold; text-transform: uppercase; }
+.info a { color: var(--primary); text-decoration: none; font-weight: bold; }
