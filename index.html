@@ -3,23 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cartilla Médica OSUNR</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Cartilla OSUNR 🌿</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ghibli-green: #9dbb9b;
+            --ghibli-blue: #a7c7e7;
+            --ghibli-cream: #fdfaf5;
+            --ghibli-accent: #e6a8d7;
+            --text: #4a5568;
+        }
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--ghibli-cream);
+            background-image: linear-gradient(180deg, var(--ghibli-blue) 0%, var(--ghibli-cream) 40%);
+            background-attachment: fixed;
+            color: var(--text);
+            margin: 0; padding: 20px;
+        }
+        .container { max-width: 600px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 30px; }
+        h1 { font-weight: 600; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
+        
+        .search-box {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            display: flex; flex-direction: column; gap: 15px;
+        }
+        input {
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 12px;
+            font-family: inherit;
+            outline: none; transition: 0.3s;
+        }
+        input:focus { border-color: var(--ghibli-green); }
+        
+        button {
+            background-color: var(--ghibli-green);
+            color: white; border: none;
+            padding: 15px; border-radius: 12px;
+            font-weight: 600; cursor: pointer;
+            transition: transform 0.2s;
+        }
+        button:hover { transform: scale(1.02); }
+
+        .tarjeta {
+            background: white; margin-top: 20px;
+            padding: 20px; border-radius: 20px;
+            border-bottom: 4px solid var(--ghibli-blue);
+            animation: fadeIn 0.5s ease;
+        }
+        .nombre { color: var(--ghibli-green); font-size: 1.2em; font-weight: 600; }
+        .info { font-size: 0.9em; margin: 8px 0; }
+        .info a { color: var(--ghibli-blue); text-decoration: none; font-weight: 600; }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Cartilla Médica OSUNR</h1>
-            <p>Buscador de Profesionales y Farmacias</p>
+            <h1>Cartilla OSUNR 🌿</h1>
+            <p>Encuentra tu médico o farmacia</p>
         </header>
-
-        <div class="search-grid">
-            <input type="text" id="busqEspecialidad" placeholder="Especialidad (ej: Pediatría)">
-            <input type="text" id="busqLocalidad" placeholder="Localidad (ej: Rosario)">
-            <input type="text" id="busqMedico" placeholder="Nombre del Médico">
-            <button class="btn-search" id="btnBuscar">BUSCAR</button>
+        <div class="search-box">
+            <input type="text" id="busqEspecialidad" placeholder="🌿 Especialidad">
+            <input type="text" id="busqLocalidad" placeholder="📍 Localidad">
+            <input type="text" id="busqMedico" placeholder="👤 Nombre">
+            <button id="btnBuscar">BUSCAR EN LA PRADERA</button>
         </div>
-
         <div id="contenedor-resultados"></div>
     </div>
     <script type="module" src="script.js"></script>
