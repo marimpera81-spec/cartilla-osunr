@@ -2,24 +2,25 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebas
 import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 const firebaseConfig = {
-    apiKey: "TU_API_KEY",
-    authDomain: "TU_PROYECTO.firebaseapp.com",
-    projectId: "TU_PROYECTO_ID",
-    storageBucket: "TU_PROYECTO.appspot.com",
-    messagingSenderId: "TU_SENDER_ID",
-    appId: "TU_APP_ID"
+  apiKey: "AIzaSyBvHq_Wb2ZDKBVCoSSFGftkfN8n2f9u1Bo",
+  authDomain: "cartilla-de-medicos-osunr.firebaseapp.com",
+  projectId: "cartilla-de-medicos-osunr",
+  storageBucket: "cartilla-de-medicos-osunr.firebasestorage.app",
+  messagingSenderId: "189142960922",
+  appId: "1:189142960922:web:48b8f9427d350385cbfaa3",
+  measurementId: "G-SJ2ZVR49B9"
 };
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 async function buscar() {
-    const esp = document.getElementById('busqEspecialidad').value.toLowerCase().trim();
-    const loc = document.getElementById('busqLocalidad').value.toLowerCase().trim();
-    const med = document.getElementById('busqMedico').value.toLowerCase().trim();
+    const esp = document.getElementById('busqEspecialidad').value.toLowerCase();
+    const loc = document.getElementById('busqLocalidad').value.toLowerCase();
+    const med = document.getElementById('busqMedico').value.toLowerCase();
     const contenedor = document.getElementById('contenedor-resultados');
 
-    contenedor.innerHTML = "Buscando...";
+    contenedor.innerHTML = "<p style='text-align:center;'>Buscando entre las nubes...</p>";
 
     try {
         const querySnapshot = await getDocs(collection(db, "medicos"));
@@ -27,27 +28,25 @@ async function buscar() {
         
         querySnapshot.forEach((doc) => {
             const d = doc.data();
-            const dEsp = (d.Especialidad || d.especialidad || "").toLowerCase();
-            const dLoc = (d.Localidad || d.localidad || "").toLowerCase();
-            const dNom = (d.Profesional || d.nombre || "").toLowerCase();
+            const nombre = (d.Profesional || d.nombre || "").toLowerCase();
+            const especialidad = (d.Especialidad || d.especialidad || "").toLowerCase();
+            const localidad = (d.Localidad || d.localidad || "").toLowerCase();
 
-            if ((!esp || dEsp.includes(esp)) && (!loc || dLoc.includes(loc)) && (!med || dNom.includes(med))) {
+            if ((!esp || especialidad.includes(esp)) && (!loc || localidad.includes(loc)) && (!med || nombre.includes(med))) {
                 const dir = d.Dirección || d.direccion || "";
-                const localidad = d.Localidad || d.localidad || "";
-                const queryMapa = encodeURIComponent(`${dir}, ${localidad}, Santa Fe, Argentina`);
-                const linkMaps = `https://www.google.com/maps/search/?api=1&query=${queryMapa}`;
+                const linkMaps = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(dir + " " + localidad)}`;
 
                 contenedor.innerHTML += `
                     <div class="tarjeta">
-                        <div class="nombre">${d.Profesional || d.nombre}</div>
-                        <div class="info"><strong>🩺</strong> ${d.Especialidad || d.especialidad}</div>
-                        <div class="info"><strong>📍</strong> <a href="${linkMaps}" target="_blank">${dir} (${localidad})</a></div>
-                        <div class="info"><strong>📞</strong> <a href="tel:${d.Teléfono || d.telefono}">${d.Teléfono || d.telefono}</a></div>
+                        <div class="nombre">${nombre.toUpperCase()}</div>
+                        <div class="info">🌸 <b>${especialidad}</b></div>
+                        <div class="info">📍 <a href="${linkMaps}" target="_blank">${dir} (${localidad})</a></div>
+                        <div class="info">📞 <a href="tel:${d.Teléfono || d.telefono}">${d.Teléfono || d.telefono}</a></div>
                     </div>`;
             }
         });
     } catch (e) {
-        contenedor.innerHTML = "Error de conexión. Revisá las reglas de Firebase.";
+        contenedor.innerHTML = "Error de conexión. Revisa las Reglas en Firebase.";
     }
 }
 
